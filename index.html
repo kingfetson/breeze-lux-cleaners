@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breeze Lux Cleaners | Professional Cleaning & Laundry</title>
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .brand-green { color: #28a745; }
+        .bg-brand-green { background-color: #28a745; }
+        .brand-yellow { color: #ffcc00; }
+        .bg-brand-yellow { background-color: #ffcc00; }
+        
+        /* Custom Diagonal Background for Hero Section */
+        .hero-diagonal {
+            background: linear-gradient(110deg, #1a1a1a 50%, #28a745 50.1%);
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold italic brand-green">BL</span>
+                <span class="font-bold text-gray-800 uppercase tracking-tight">Breeze Lux <span class="brand-yellow">Cleaners</span></span>
+            </div>
+            <div class="hidden md:flex gap-8 font-semibold text-gray-600">
+                <a href="#home" class="hover:text-green-600">Home</a>
+                <a href="#services" class="hover:text-green-600">Services</a>
+                <a href="#contact" class="hover:text-green-600">Contact Us</a>
+            </div>
+            <a href="tel:0758966762" class="bg-brand-green text-white px-6 py-2 rounded-full font-bold">Call Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-zinc-900 text-white overflow-hidden">
+        <div class="container mx-auto px-6 py-24 flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                    Premium <br> <span class="brand-green">Cleaning &</span> <br> <span class="brand-yellow">Laundry</span> Services
+                </h1>
+                <p class="text-lg text-gray-300 mb-8 max-w-md">
+                    Professional, reliable, and thorough cleaning services for your home and office. We take the stress out of cleaning!
+                </p>
+                <div class="bg-brand-yellow text-black inline-block px-6 py-2 font-bold skew-x-[-12deg] mb-8">
+                    DEALERS IN:
+                </div>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-100 font-medium">
+                    <li>✓ Laundry Services</li>
+                    <li>✓ Standard Cleaning</li>
+                    <li>✓ Sofa Vacuum Cleaning</li>
+                    <li>✓ Mattress Vacuum Cleaning</li>
+                    <li>✓ Post Event Cleaning</li>
+                    <li>✓ Post Construction Cleaning</li>
+                </ul>
+            </div>
+            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
+                <!-- Image placeholder for cleaning equipment -->
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 w-64 h-64 bg-brand-green rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695ce6958?auto=format&fit=crop&q=80&w=600" alt="Cleaning Services" class="rounded-2xl shadow-2xl relative z-10 border-4 border-brand-yellow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Socials Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="bg-zinc-900 rounded-3xl p-10 flex flex-col md:flex-row justify-between items-center text-white">
+                <div>
+                    <h2 class="text-4xl font-bold mb-4">Ready to Book?</h2>
+                    <p class="text-gray-400 mb-6">Contact us through any of our platforms below.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-brand-green p-2 rounded-full">📞</span>
+                            <span class="text-xl font-bold">0758 966 762</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="bg-pink-600 p-2 rounded-full">📷</span>
+                            <span>@breezeluxcleaners</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="bg-blue-600 p-2 rounded-full">f</span>
+                            <span>Breeze Lux Cleaners</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10 md:mt-0 text-center">
+                    <a href="https://wa.me/254758966762" class="bg-brand-yellow text-black px-10 py-4 rounded-xl font-extrabold text-xl hover:bg-yellow-400 transition">
+                        BOOK A CLEANER NOW
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/254758966762?text=Hello%20Breeze%20Lux%20Cleaners%2C%20I%20would%20like%20to%20book%20a%20cleaning%20service." class="whatsapp-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="25">
+        <span class="font-bold">Chat with us!</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-10 border-t border-gray-200">
+        <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
+            &copy; 2026 Breeze Lux Cleaners. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
