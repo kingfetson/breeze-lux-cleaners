@@ -1,137 +1,687 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breeze Lux Cleaners | Professional Cleaning & Laundry</title>
-    <!-- Tailwind CSS for modern styling -->
+    <title>Breeze Lux Cleaners | Premium Cleaning & Laundry Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Poppins', sans-serif; }
-        .brand-green { color: #28a745; }
-        .bg-brand-green { background-color: #28a745; }
-        .brand-yellow { color: #ffcc00; }
-        .bg-brand-yellow { background-color: #ffcc00; }
-        
-        /* Custom Diagonal Background for Hero Section */
-        .hero-diagonal {
-            background: linear-gradient(110deg, #1a1a1a 50%, #28a745 50.1%);
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#28a745',
+                            darkgreen: '#1e7e34',
+                            yellow: '#ffcc00',
+                            darkyellow: '#e6b800',
+                            dark: '#121212',
+                            surface: '#1e1e1e'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
         }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
         
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #28a745; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ffcc00; }
+
+        /* Before/After slider styling */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        .slider-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .before-img {
+            background-image: url('https://images.unsplash.com/photo-1558317374-067fb5f30001?auto=format&fit=crop&q=80&w=800');
+        }
+        .after-img {
+            background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800');
+            width: 50%;
+        }
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #ffcc00;
+            cursor: ew-resize;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: #28a745;
             color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: 0.3s;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            pointer-events: none;
+            z-index: 11;
         }
-        .whatsapp-btn:hover { transform: scale(1.1); }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-zinc-50 text-zinc-800">
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="bg-brand-dark text-gray-300 text-xs py-2 px-6 border-b border-zinc-800 hidden md:block">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex gap-6">
+                <span><i class="fa-solid fa-phone text-brand-green mr-2"></i>0758 966 762</span>
+                <span><i class="fa-solid fa-location-dot text-brand-yellow mr-2"></i>Premium Local Cleaning Coverage</span>
+            </div>
+            <div class="flex gap-4 text-sm">
+                <a href="https://facebook.com" target="_blank" class="hover:text-brand-green transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-brand-green transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://tiktok.com" target="_blank" class="hover:text-brand-green transition"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bg-white shadow-lg sticky top-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <span class="text-2xl font-extrabold italic brand-green">BL</span>
-                <span class="font-bold text-gray-800 uppercase tracking-tight">Breeze Lux <span class="brand-yellow">Cleaners</span></span>
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="bg-brand-dark px-3 py-1.5 rounded-lg border-2 border-brand-green transition-transform group-hover:scale-105">
+                    <span class="text-xl font-extrabold italic text-brand-green">B</span>
+                    <span class="text-xl font-extrabold italic text-brand-yellow">L</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-xl tracking-tight text-brand-dark uppercase">BREEZE LUX</span>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-green -mt-1">CLEANERS</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 font-semibold text-zinc-600">
+                <a href="#home" class="hover:text-brand-green transition-colors">Home</a>
+                <a href="#about" class="hover:text-brand-green transition-colors">Why Us</a>
+                <a href="#services" class="hover:text-brand-green transition-colors">Services</a>
+                <a href="#pricing" class="hover:text-brand-green transition-colors">Pricing Packages</a>
+                <a href="#showcase" class="hover:text-brand-green transition-colors">Results</a>
+                <a href="#booking" class="hover:text-brand-green transition-colors">Book Online</a>
             </div>
-            <div class="hidden md:flex gap-8 font-semibold text-gray-600">
-                <a href="#home" class="hover:text-green-600">Home</a>
-                <a href="#services" class="hover:text-green-600">Services</a>
-                <a href="#contact" class="hover:text-green-600">Contact Us</a>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="tel:0758966762" class="flex items-center gap-2 font-bold text-zinc-900 group">
+                    <span class="bg-zinc-100 p-2.5 rounded-full group-hover:bg-brand-green group-hover:text-white transition-all"><i class="fa-solid fa-phone"></i></span>
+                    0758 966 762
+                </a>
+                <a href="#booking" class="bg-brand-green hover:bg-brand-darkgreen text-white px-6 py-2.5 rounded-xl font-bold transition-all shadow-md shadow-green-100 transform hover:-translate-y-0.5">
+                    Get Instant Quote
+                </a>
             </div>
-            <a href="tel:0758966762" class="bg-brand-green text-white px-6 py-2 rounded-full font-bold">Call Now</a>
+
+            <button id="mobile-menu-btn" class="md:hidden text-zinc-800 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-zinc-100 absolute w-full left-0 px-6 py-4 shadow-xl flex flex-col gap-4 font-semibold text-zinc-700 animate-fadeIn">
+            <a href="#home" class="hover:text-brand-green py-2 border-b border-zinc-50">Home</a>
+            <a href="#about" class="hover:text-brand-green py-2 border-b border-zinc-50">Why Us</a>
+            <a href="#services" class="hover:text-brand-green py-2 border-b border-zinc-50">Services</a>
+            <a href="#pricing" class="hover:text-brand-green py-2 border-b border-zinc-50">Pricing Packages</a>
+            <a href="#showcase" class="hover:text-brand-green py-2 border-b border-zinc-50">Results</a>
+            <a href="#booking" class="hover:text-brand-green py-2">Book Online</a>
+            <div class="pt-2 flex flex-col gap-3">
+                <a href="tel:0758966762" class="bg-zinc-100 text-center py-2.5 rounded-xl text-zinc-800 font-bold"><i class="fa-solid fa-phone mr-2"></i>0758 966 762</a>
+                <a href="#booking" class="bg-brand-green text-white text-center py-2.5 rounded-xl font-bold">Book a Cleaner Now</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative bg-zinc-900 text-white overflow-hidden">
-        <div class="container mx-auto px-6 py-24 flex flex-col md:flex-row items-center relative z-10">
-            <div class="md:w-1/2">
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-                    Premium <br> <span class="brand-green">Cleaning &</span> <br> <span class="brand-yellow">Laundry</span> Services
-                </h1>
-                <p class="text-lg text-gray-300 mb-8 max-w-md">
-                    Professional, reliable, and thorough cleaning services for your home and office. We take the stress out of cleaning!
-                </p>
-                <div class="bg-brand-yellow text-black inline-block px-6 py-2 font-bold skew-x-[-12deg] mb-8">
-                    DEALERS IN:
-                </div>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-100 font-medium">
-                    <li>✓ Laundry Services</li>
-                    <li>✓ Standard Cleaning</li>
-                    <li>✓ Sofa Vacuum Cleaning</li>
-                    <li>✓ Mattress Vacuum Cleaning</li>
-                    <li>✓ Post Event Cleaning</li>
-                    <li>✓ Post Construction Cleaning</li>
-                </ul>
-            </div>
-            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-                <!-- Image placeholder for cleaning equipment -->
-                <div class="relative">
-                    <div class="absolute -top-10 -left-10 w-64 h-64 bg-brand-green rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695ce6958?auto=format&fit=crop&q=80&w=600" alt="Cleaning Services" class="rounded-2xl shadow-2xl relative z-10 border-4 border-brand-yellow">
-                </div>
-            </div>
+    <section id="home" class="relative bg-brand-dark text-white overflow-hidden py-20 lg:py-32">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute -right-20 -top-20 w-96 h-96 bg-brand-green rounded-full filter blur-3xl"></div>
+            <div class="absolute left-10 bottom-10 w-80 h-80 bg-brand-yellow rounded-full filter blur-2xl"></div>
         </div>
-    </section>
+        
+        <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-brand-green/20 to-transparent skew-x-12 transform origin-top-right hidden lg:block"></div>
 
-    <!-- Contact & Socials Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="bg-zinc-900 rounded-3xl p-10 flex flex-col md:flex-row justify-between items-center text-white">
-                <div>
-                    <h2 class="text-4xl font-bold mb-4">Ready to Book?</h2>
-                    <p class="text-gray-400 mb-6">Contact us through any of our platforms below.</p>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4">
-                            <span class="bg-brand-green p-2 rounded-full">📞</span>
-                            <span class="text-xl font-bold">0758 966 762</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <span class="bg-pink-600 p-2 rounded-full">📷</span>
-                            <span>@breezeluxcleaners</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <span class="bg-blue-600 p-2 rounded-full">f</span>
-                            <span>Breeze Lux Cleaners</span>
-                        </div>
+        <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7">
+                <span class="inline-flex items-center gap-2 bg-zinc-800 text-brand-green font-semibold text-xs uppercase tracking-widest px-4 py-2 rounded-full border border-zinc-700 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-yellow animate-ping"></span> Premium Luxury Maintenance & Cleanliness
+                </span>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+                    Premium <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-400">Cleaning &</span> <br>
+                    <span class="text-brand-yellow">Laundry</span> Services
+                </h1>
+                
+                <p class="text-zinc-400 text-lg mb-8 max-w-xl leading-relaxed">
+                    Professional, reliable, and exceptionally thorough cleaning treatments customized for spaces demanding absolute luxury. We treat your home, carpets, and mattresses to flawless standard maintenance.
+                </p>
+
+                <div class="mb-8">
+                    <div class="bg-brand-yellow text-zinc-900 font-heading font-extrabold px-6 py-2 rounded-r-lg rounded-tl-lg inline-block transform -skew-x-6 tracking-wide mb-4">
+                        DEALERS IN:
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-zinc-300 font-medium">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-green"></i> Laundry Services</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-green"></i> Standard Cleaning</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-green"></i> Sofa Vacuum Cleaning</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-green"></i> Mattress Vacuum Cleaning</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-green"></i> Post Event Cleaning</div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-green"></i> Post Construction Cleaning</div>
                     </div>
                 </div>
-                <div class="mt-10 md:mt-0 text-center">
-                    <a href="https://wa.me/254758966762" class="bg-brand-yellow text-black px-10 py-4 rounded-xl font-extrabold text-xl hover:bg-yellow-400 transition">
-                        BOOK A CLEANER NOW
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#booking" class="bg-brand-green hover:bg-brand-darkgreen text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-green-900/30 flex items-center gap-3">
+                        <i class="fa-solid fa-calendar-check"></i> Book Premium Care
+                    </a>
+                    <a href="https://wa.me/254758966762?text=Hello%20Breeze%20Lux%20Cleaners%2C%20I%20would%20like%20to%20inquire%20about%20your%20professional%20cleaning%20services." target="_blank" class="bg-zinc-800 hover:bg-zinc-700 text-brand-yellow border border-zinc-700 font-bold px-8 py-4 rounded-xl transition-all flex items-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-xl text-emerald-400"></i> Consult via WhatsApp
                     </a>
                 </div>
             </div>
+
+            <div class="lg:col-span-5 relative mt-8 lg:mt-0">
+                <div class="relative mx-auto max-w-md lg:max-w-none">
+                    <div class="absolute inset-0 border-2 border-brand-yellow rounded-2xl transform translate-x-4 translate-y-4 z-0"></div>
+                    
+                    <div class="relative z-10 bg-zinc-900 p-3 rounded-2xl shadow-2xl border border-zinc-700">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695ce6958?auto=format&fit=crop&q=80&w=600" alt="Breeze Lux Carpet & Sofa Vacuum Deep Treatment" class="rounded-xl w-full object-cover aspect-[4/3] lg:aspect-square">
+                        
+                        <div class="absolute -bottom-6 -left-6 bg-white text-zinc-900 p-4 rounded-xl shadow-xl flex items-center gap-4 z-20 border border-zinc-100">
+                            <div class="bg-brand-yellow/20 p-3 rounded-lg text-brand-dark font-black text-2xl">
+                                5★
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm leading-tight text-brand-dark">Top Rated Cleaners</h4>
+                                <p class="text-xs text-zinc-500">Unmatched Quality Guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/254758966762?text=Hello%20Breeze%20Lux%20Cleaners%2C%20I%20would%20like%20to%20book%20a%20cleaning%20service." class="whatsapp-btn">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" width="25">
-        <span class="font-bold">Chat with us!</span>
-    </a>
+    <section id="about" class="bg-white py-12 border-b border-zinc-100">
+        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="p-4">
+                <h3 class="text-3xl font-extrabold text-brand-dark mb-1">100%</h3>
+                <p class="text-sm font-semibold text-zinc-500 uppercase tracking-wider">Eco-Friendly Solutions</p>
+            </div>
+            <div class="p-4 border-l border-zinc-100">
+                <h3 class="text-3xl font-extrabold text-brand-dark mb-1">5K+</h3>
+                <p class="text-sm font-semibold text-zinc-500 uppercase tracking-wider">Spaces Perfected</p>
+            </div>
+            <div class="p-4 border-l border-zinc-100">
+                <h3 class="text-3xl font-extrabold text-brand-dark mb-1">24/7</h3>
+                <p class="text-sm font-semibold text-zinc-500 uppercase tracking-wider">Dedicated Customer Support</p>
+            </div>
+            <div class="p-4 border-l border-zinc-100">
+                <h3 class="text-3xl font-extrabold text-brand-dark mb-1">Expert</h3>
+                <p class="text-sm font-semibold text-zinc-500 uppercase tracking-wider">Vetted Team Professionals</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-100 py-10 border-t border-gray-200">
-        <div class="container mx-auto px-6 text-center text-gray-500 text-sm">
-            &copy; 2026 Breeze Lux Cleaners. All rights reserved.
+    <section id="services" class="py-20 bg-zinc-50">
+        <div class="container mx-auto px-6 text-center">
+            <span class="text-brand-green font-bold text-sm uppercase tracking-widest block mb-3">Our Core Specialities</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Elite Maintenance & Specialty Care</h2>
+            <p class="text-zinc-600 max-w-2xl mx-auto mb-16 text-base">
+                Explore the premium catalog of professional maintenance solutions engineered to leave every corner sparkling clean.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-zinc-100 hover:shadow-xl transition-all group hover:-translate-y-1">
+                    <div class="bg-green-50 text-brand-green w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-green group-hover:text-white transition-all">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Premium Laundry Services</h3>
+                    <p class="text-zinc-600 text-sm leading-relaxed mb-4">
+                        Delicate, crisp, and hygienic fabric laundry using premium fabric conditioners that preserve garment lifespans and brightness.
+                    </p>
+                    <a href="#booking" class="text-sm font-bold text-brand-green inline-flex items-center gap-2 group-hover:text-brand-dark transition-colors">Book Treatment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-zinc-100 hover:shadow-xl transition-all group hover:-translate-y-1">
+                    <div class="bg-yellow-50 text-brand-darkyellow w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-yellow group-hover:text-zinc-900 transition-all">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Standard Home Cleaning</h3>
+                    <p class="text-zinc-600 text-sm leading-relaxed mb-4">
+                        Complete regular dusting, high-grade mopping, structural sanitization, and deep floor clearing for crisp home presentation.
+                    </p>
+                    <a href="#booking" class="text-sm font-bold text-brand-green inline-flex items-center gap-2 group-hover:text-brand-dark transition-colors">Book Treatment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-zinc-100 hover:shadow-xl transition-all group hover:-translate-y-1">
+                    <div class="bg-green-50 text-brand-green w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-green group-hover:text-white transition-all">
+                        <i class="fa-solid fa-couch"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Sofa Vacuum & Deep Extraction</h3>
+                    <p class="text-zinc-600 text-sm leading-relaxed mb-4">
+                        Deep heavy dust extraction, stain sanitation, and odor removal utilizing high-power vacuum equipment for fabric and leather couches.
+                    </p>
+                    <a href="#booking" class="text-sm font-bold text-brand-green inline-flex items-center gap-2 group-hover:text-brand-dark transition-colors">Book Treatment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-zinc-100 hover:shadow-xl transition-all group hover:-translate-y-1">
+                    <div class="bg-yellow-50 text-brand-darkyellow w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-yellow group-hover:text-zinc-900 transition-all">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Mattress Vacuum Treatment</h3>
+                    <p class="text-zinc-600 text-sm leading-relaxed mb-4">
+                        Acarid, allergen, dust mite, and deep structural extraction ensuring clear sleep hygiene and sanitized mattress rest.
+                    </p>
+                    <a href="#booking" class="text-sm font-bold text-brand-green inline-flex items-center gap-2 group-hover:text-brand-dark transition-colors">Book Treatment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-zinc-100 hover:shadow-xl transition-all group hover:-translate-y-1">
+                    <div class="bg-green-50 text-brand-green w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-green group-hover:text-white transition-all">
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Post Event Cleaning</h3>
+                    <p class="text-zinc-600 text-sm leading-relaxed mb-4">
+                        Immediate restoration, garbage sorting, deep polish wash down after heavy celebrations, corporate functions, or parties.
+                    </p>
+                    <a href="#booking" class="text-sm font-bold text-brand-green inline-flex items-center gap-2 group-hover:text-brand-dark transition-colors">Book Treatment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-zinc-100 hover:shadow-xl transition-all group hover:-translate-y-1">
+                    <div class="bg-yellow-50 text-brand-darkyellow w-14 h-14 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-yellow group-hover:text-zinc-900 transition-all">
+                        <i class="fa-solid fa-trowel-bricks"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Post Construction Polish</h3>
+                    <p class="text-zinc-600 text-sm leading-relaxed mb-4">
+                        Heavy fine dust vacuum extraction, debris removal, paint spot eradication, and glass polishing for premium move-in readiness.
+                    </p>
+                    <a href="#booking" class="text-sm font-bold text-brand-green inline-flex items-center gap-2 group-hover:text-brand-dark transition-colors">Book Treatment <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-green font-bold text-sm uppercase tracking-widest block mb-3">Clear Packages</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Choose Your Service Plan</h2>
+                <p class="text-zinc-600 max-w-xl mx-auto">Compare our structural tiers built carefully around residential and business cleaning dependencies.</p>
+            </div>
+
+            <div class="overflow-x-auto rounded-2xl border border-zinc-200 shadow-xl max-w-4xl mx-auto">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-brand-dark text-white text-sm font-heading">
+                            <th class="p-6">Included Treatments & Tasks</th>
+                            <th class="p-6 text-brand-green text-center">Standard Tier</th>
+                            <th class="p-6 text-brand-yellow text-center bg-zinc-800">Deep / Premium Lux</th>
+                            <th class="p-6 text-brand-green text-center">Heavy Post-Build</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-zinc-200 text-sm text-zinc-700">
+                        <tr>
+                            <td class="p-5 font-semibold bg-zinc-50">General Surface Dusting & High Mopping</td>
+                            <td class="p-5 text-center text-emerald-600 text-lg"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="p-5 text-center text-emerald-600 text-lg bg-zinc-50/50"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="p-5 text-center text-emerald-600 text-lg"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-semibold bg-zinc-50">Vacuum Extraction for Carpet/Upholstery</td>
+                            <td class="p-5 text-center text-zinc-300"><i class="fa-solid fa-circle-minus"></i></td>
+                            <td class="p-5 text-center text-emerald-600 text-lg bg-zinc-50/50"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="p-5 text-center text-emerald-600 text-lg"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-semibold bg-zinc-50">Stain Odor Disinfection treatment</td>
+                            <td class="p-5 text-center text-zinc-300"><i class="fa-solid fa-circle-minus"></i></td>
+                            <td class="p-5 text-center text-emerald-600 text-lg bg-zinc-50/50"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="p-5 text-center text-emerald-600 text-lg"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-semibold bg-zinc-50">Fine Paint Spot / Concrete Spackle Removal</td>
+                            <td class="p-5 text-center text-zinc-300"><i class="fa-solid fa-circle-minus"></i></td>
+                            <td class="p-5 text-center text-zinc-300 bg-zinc-50/50"><i class="fa-solid fa-circle-minus"></i></td>
+                            <td class="p-5 text-center text-emerald-600 text-lg"><i class="fa-solid fa-circle-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-semibold bg-zinc-50">Internal Cabinet / Appliance Detailed Wipe down</td>
+                            <td class="p-5 text-center text-zinc-300"><i class="fa-solid fa-circle-minus"></i></td>
+                            <td class="p-5 text-center text-emerald-600 text-lg bg-zinc-50/50"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="p-5 text-center text-zinc-300"><i class="fa-solid fa-circle-minus"></i></td>
+                        </tr>
+                        <tr class="bg-zinc-50">
+                            <td class="p-6 font-bold text-brand-dark">Action Option</td>
+                            <td class="p-6 text-center">
+                                <a href="#booking" class="text-xs bg-brand-dark text-white px-4 py-2 rounded-lg font-bold block hover:bg-brand-green transition-colors">Select Tier</a>
+                            </td>
+                            <td class="p-6 text-center bg-zinc-800">
+                                <a href="#booking" class="text-xs bg-brand-yellow text-zinc-900 px-4 py-2 rounded-lg font-bold block hover:bg-white transition-colors">Select Premium</a>
+                            </td>
+                            <td class="p-6 text-center">
+                                <a href="#booking" class="text-xs bg-brand-dark text-white px-4 py-2 rounded-lg font-bold block hover:bg-brand-green transition-colors">Select Tier</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="showcase" class="py-20 bg-zinc-900 text-white overflow-hidden">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 text-left">
+                <span class="text-brand-yellow font-bold text-sm uppercase tracking-widest block mb-3">Interactive Proof</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Witness The Breeze Lux Difference</h2>
+                <p class="text-zinc-400 mb-6 leading-relaxed">
+                    Use our interactive visual slider to compare stained, dusty fabrics directly with our final vacuum-extracted and sanitized deep luxury results.
+                </p>
+                <div class="flex gap-4 items-center bg-zinc-800 p-4 rounded-xl border border-zinc-700">
+                    <div class="text-brand-yellow text-2xl"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <p class="text-xs text-zinc-300 font-medium">Drag the center divider handle left or right to inspect macro fiber results.</p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7">
+                <div class="slider-container" id="beforeAfterSlider">
+                    <div class="slider-img before-img"></div>
+                    <div class="slider-img after-img" id="afterImage"></div>
+                    <div class="slider-handle" id="sliderHandle"></div>
+                    <div class="slider-button"><i class="fa-solid fa-arrows-left-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="py-20 bg-zinc-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-zinc-100 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-brand-green to-brand-yellow"></div>
+                
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-extrabold text-brand-dark mb-2">Instant Booking & Quote Estimation</h2>
+                    <p class="text-zinc-500 text-sm">Select service variables to immediately pre-fill your structured WhatsApp reservation details.</p>
+                </div>
+
+                <form id="quoteForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-zinc-700 mb-2">Your Full Name</label>
+                            <input type="text" id="clientName" required placeholder="John Doe" class="w-full border border-zinc-200 rounded-xl px-4 py-3 bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand-green text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-zinc-700 mb-2">Contact Telephone Number</label>
+                            <input type="tel" id="clientPhone" required placeholder="0758 966 762" class="w-full border border-zinc-200 rounded-xl px-4 py-3 bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand-green text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-zinc-700 mb-2">Select Primary Treatment Category</label>
+                            <select id="serviceType" onchange="calculateEstimate()" class="w-full border border-zinc-200 rounded-xl px-4 py-3 bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand-green text-sm font-medium">
+                                <option value="Standard House Cleaning">Standard House Cleaning</option>
+                                <option value="Premium Laundry Care">Premium Laundry Care</option>
+                                <option value="Sofa Vacuum Deep Treatment">Sofa Vacuum Deep Treatment</option>
+                                <option value="Mattress Deep Extraction">Mattress Deep Extraction</option>
+                                <option value="Post-Event Clean Restoration">Post-Event Clean Restoration</option>
+                                <option value="Post-Construction Final Polish">Post-Construction Final Polish</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-zinc-700 mb-2">Scale / Size Estimate</label>
+                            <select id="serviceSize" onchange="calculateEstimate()" class="w-full border border-zinc-200 rounded-xl px-4 py-3 bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand-green text-sm font-medium">
+                                <option value="Compact / Small Space / 1 Sofa">Compact Space / Individual item</option>
+                                <option value="Medium / Standard Family Space / 3-Seater">Medium Family scale space / Multi-set</option>
+                                <option value="Large / Premium Office / Duplex">Large Estate scale / Full Property treatment</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-zinc-700 mb-2">Specific Preferences or Instructions</label>
+                        <textarea id="clientNotes" rows="3" placeholder="List stains to treat, special fabrics, preferred time..." class="w-full border border-zinc-200 rounded-xl px-4 py-3 bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand-green text-sm"></textarea>
+                    </div>
+
+                    <div class="bg-zinc-900 text-white rounded-2xl p-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-zinc-400 block font-semibold">Estimated Tier Weight</span>
+                            <span id="estimatedTier" class="text-brand-yellow font-bold text-lg">Standard Maintenance Rate</span>
+                        </div>
+                        <button type="submit" class="bg-brand-green hover:bg-brand-darkgreen text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-green-900/40 w-full sm:w-auto flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Send to WhatsApp Booking
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <span class="text-brand-green font-bold text-sm uppercase tracking-widest block mb-3">Client Satisfaction</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-16">Endorsed By Elite Households</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-100 relative">
+                    <div class="text-brand-yellow text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-zinc-600 text-sm leading-relaxed mb-6 italic">
+                        "The deep vacuum treatment for our living room couches completely changed the space. They extracted hidden dust we didn't know existed! Absolutely recommended."
+                    </p>
+                    <div class="font-bold text-brand-dark text-sm">Amara O.</div>
+                </div>
+
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-100 relative">
+                    <div class="text-brand-yellow text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-zinc-600 text-sm leading-relaxed mb-6 italic">
+                        "Outstanding post-construction polish! Every speck of heavy cement powder and fine dust was gone before move-in. Pure luxury results."
+                    </p>
+                    <div class="font-bold text-brand-dark text-sm">David K.</div>
+                </div>
+
+                <div class="bg-zinc-50 p-8 rounded-2xl border border-zinc-100 relative">
+                    <div class="text-brand-yellow text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-zinc-600 text-sm leading-relaxed mb-6 italic">
+                        "Their standard weekly home maintenance program keeps everything pristine. The team is hyper professional, trustworthy, and fast."
+                    </p>
+                    <div class="font-bold text-brand-dark text-sm">Grace M.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-zinc-50 border-t border-zinc-200">
+        <div class="container mx-auto px-6 text-center">
+            <span class="text-zinc-400 text-xs font-bold uppercase tracking-widest block mb-4">Follow us on Social Media <a href="#" class="text-brand-green font-bold">@breezeluxcleaners</a></span>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                <div class="aspect-square bg-zinc-300 rounded-xl overflow-hidden shadow-sm"><img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" alt="Breeze Lux"></div>
+                <div class="aspect-square bg-zinc-300 rounded-xl overflow-hidden shadow-sm"><img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" alt="Breeze Lux"></div>
+                <div class="aspect-square bg-zinc-300 rounded-xl overflow-hidden shadow-sm"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" alt="Breeze Lux"></div>
+                <div class="aspect-square bg-zinc-300 rounded-xl overflow-hidden shadow-sm"><img src="https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" alt="Breeze Lux"></div>
+                <div class="aspect-square bg-zinc-300 rounded-xl overflow-hidden shadow-sm"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" alt="Breeze Lux"></div>
+                <div class="aspect-square bg-zinc-300 rounded-xl overflow-hidden shadow-sm"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" alt="Breeze Lux"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white pt-16 pb-8 border-t-4 border-brand-green">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-brand-green text-white font-extrabold italic px-3 py-1 rounded border border-brand-yellow">BL</div>
+                    <span class="font-heading font-bold text-lg tracking-wider">BREEZE LUX</span>
+                </div>
+                <p class="text-zinc-400 text-xs leading-relaxed">
+                    Premium Visual Identity, luxury standard service frameworks for modern home, commercial property cleaning and textile laundry.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold font-heading text-sm uppercase tracking-wider text-brand-green mb-4">Quick Links</h4>
+                <div class="flex flex-col gap-2 text-zinc-400 text-xs font-medium">
+                    <a href="#home" class="hover:text-brand-yellow">Home Base</a>
+                    <a href="#services" class="hover:text-brand-yellow">Treatment Tiers</a>
+                    <a href="#pricing" class="hover:text-brand-yellow">Comparison Metrics</a>
+                    <a href="#booking" class="hover:text-brand-yellow">Booking Engine</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold font-heading text-sm uppercase tracking-wider text-brand-green mb-4">Official Channels</h4>
+                <div class="flex flex-col gap-3 text-zinc-400 text-xs">
+                    <div><span class="text-brand-yellow font-bold">Call/Text:</span> 0758 966 762</div>
+                    <div><span class="text-brand-yellow font-bold">Instagram:</span> @breezeluxcleaners</div>
+                    <div><span class="text-brand-yellow font-bold">TikTok:</span> @breezeluxcleaners1</div>
+                    <div><span class="text-brand-yellow font-bold">Facebook:</span> Breeze Lux Cleaners</div>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold font-heading text-sm uppercase tracking-wider text-brand-green mb-4">Our Service Guarantee</h4>
+                <p class="text-zinc-400 text-xs leading-relaxed">
+                    If any spot or dust particle is missed within our booked scope, we re-clean that specific module completely free of charge. Your absolute peace of mind is our benchmark.
+                </p>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 border-t border-zinc-800 pt-6 text-center text-zinc-500 text-xs">
+            &copy; 2026 Breeze Lux Cleaners. All Rights Reserved. Crafted for premium brand visibility.
         </div>
     </footer>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        <div id="whatsappPanel" class="hidden bg-white text-zinc-800 rounded-2xl w-72 shadow-2xl border border-zinc-200 overflow-hidden mb-2 animate-fadeIn">
+            <div class="bg-brand-dark text-white p-4 flex items-center gap-3">
+                <div class="bg-emerald-500 w-3 h-3 rounded-full animate-pulse"></div>
+                <div>
+                    <h4 class="font-bold text-xs">Breeze Lux Care Advisor</h4>
+                    <p class="text-[10px] text-zinc-400">Online | Typical reply in seconds</p>
+                </div>
+            </div>
+            <div class="p-4 bg-zinc-50 text-xs text-zinc-600">
+                <p class="bg-white p-3 rounded-xl shadow-sm border border-zinc-100 mb-3">Hello there! 👋 Let us know how we can clean your space or carpets today!</p>
+                <a href="https://wa.me/254758966762?text=Hello%20Breeze%20Lux%20Cleaners%2C%20I%27d%20like%20to%20get%20a%20cleaning%20recommendation." target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded-lg block text-center transition-colors">
+                    Start Chat
+                </a>
+            </div>
+        </div>
+        
+        <button onclick="toggleWhatsappPanel()" class="bg-[#25d366] hover:bg-[#20ba5a] text-white p-4 rounded-full shadow-2xl flex items-center justify-center text-2xl transition-transform hover:scale-110 relative group">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="absolute right-14 bg-brand-dark text-white text-xs font-bold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity hidden md:inline">Chat With Us</span>
+        </button>
+    </div>
+
+    <script>
+        // Toggle mobile nav menu
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Toggle floating WhatsApp menu panel
+        function toggleWhatsappPanel() {
+            const panel = document.getElementById('whatsappPanel');
+            panel.classList.toggle('hidden');
+        }
+
+        // Before/After Interactive Comparison Logic 
+        const slider = document.getElementById('beforeAfterSlider');
+        const afterImg = document.getElementById('afterImage');
+        const handle = document.getElementById('sliderHandle');
+        const sliderBtn = document.querySelector('.slider-button');
+
+        if(slider) {
+            let isDragging = false;
+            
+            const moveSlider = (clientX) => {
+                const rect = slider.getBoundingClientRect();
+                const x = clientX - rect.left;
+                let positionPercentage = (x / rect.width) * 100;
+                
+                if (positionPercentage < 0) positionPercentage = 0;
+                if (positionPercentage > 100) positionPercentage = 100;
+                
+                afterImg.style.width = `${positionPercentage}%`;
+                handle.style.left = `${positionPercentage}%`;
+                sliderBtn.style.left = `${positionPercentage}%`;
+            };
+
+            slider.addEventListener('mousedown', () => isDragging = true);
+            window.addEventListener('mouseup', () => isDragging = false);
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                moveSlider(e.clientX);
+            });
+
+            // Touch support for mobile devices
+            slider.addEventListener('touchstart', () => isDragging = true);
+            window.addEventListener('touchend', () => isDragging = false);
+            slider.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                moveSlider(e.touches[0].clientX);
+            });
+        }
+
+        // Calculate custom estimated descriptive tiers live
+        function calculateEstimate() {
+            const type = document.getElementById('serviceType').value;
+            const size = document.getElementById('serviceSize').value;
+            const tierIndicator = document.getElementById('estimatedTier');
+
+            if (size === 'Compact / Small Space / 1 Sofa') {
+                tierIndicator.innerText = "Basic Single-Item Rate";
+            } else if (size === 'Medium / Standard Family Space / 3-Seater') {
+                tierIndicator.innerText = "Standard Household Package Rate";
+            } else {
+                tierIndicator.innerText = "Elite/Premium Commercial Scale Rate";
+            }
+        }
+
+        // Handle online form validation submission & formatting into WhatsApp redirect URL
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const service = document.getElementById('serviceType').value;
+            const size = document.getElementById('serviceSize').value;
+            const notes = document.getElementById('clientNotes').value;
+            const tierText = document.getElementById('estimatedTier').innerText;
+
+            // URL safe string building
+            const message = `Hello Breeze Lux Cleaners!\\n\\nI would like to book a professional cleaning treatment.\\n\\n*Booking Details:*\\n• Name: ${name}\\n• Phone: ${phone}\\n• Service: ${service}\\n• Scale/Size: ${size}\\n• Estimation Tier: ${tierText}\\n• Special Instructions: ${notes}`;
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Redirect live to phone or WhatsApp API channel
+            window.open(`https://wa.me/254758966762?text=${encodedMessage}`, '_blank');
+        }
+    </script>
 
 </body>
 </html>
